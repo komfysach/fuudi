@@ -1,7 +1,16 @@
 package controllers
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/gofiber/fiber/v2"
+	"github.com/komfysach/fuudi/models"
+)
 
-func Hello(c *fiber.Ctx) error {
-	return c.SendString("Hello World!")
+func Register(c *fiber.Ctx) error {
+	user := models.User{
+		FirstName: "Sachin",
+	}
+
+	user.LastName = "Lendis"
+
+	return c.JSON(user)
 }
