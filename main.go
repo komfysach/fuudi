@@ -1,22 +1,13 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/gofiber/fiber/v2"
 
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
+	"github.com/komfysach/fuudi/database"
 )
 
 func main() {
-	db, err := gorm.Open(mysql.Open("root:@GetKomfy23:$@/fuudi_admin"), &gorm.Config{})
-
-	if err != nil {
-		panic("Could not connect to the database")
-	}
-
-	fmt.Println(db)
+	database.Connect()
 
 	app := fiber.New()
 
